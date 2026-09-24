@@ -26,6 +26,12 @@ Status: pending owner decision for project license, approved remotes, security c
 
 Frontend implementation decisions are owned by the [frontend index](../brikuma-frontend/docs/DECISIONS.md).
 
+The owner's 2026-09-24 UI/UX correction prioritizes detailed studio rendering and useful manual modeling. The [frontend studio decision](../brikuma-frontend/docs/DECISIONS.md#fe-dec-009-studio-rendering-and-direct-manual-editing) owns the implementation and expanded local editing contract; the frontend-only architecture remains in force.
+
+The subsequent request for realistic stud spacing and underside cavities is owned by the [frontend connector geometry decision](../brikuma-frontend/docs/DECISIONS.md#fe-dec-010-nominal-brick-proportions-and-inspectable-connectors), including nominal proportions, original geometry and single-brick inspection without physical-validation claims.
+
+The later rejection of the retro interface and arbitrary exploded view is addressed by the [contemporary workspace and assembly decision](../brikuma-frontend/docs/DECISIONS.md#fe-dec-011-contemporary-workspace-stud-feedback-and-authored-assemblies): connector-aware placement, precise free-form coordinates, explicit assembly modules and a compact neutral interface remain browser-local.
+
 ## BRK-DEC-005 npm and no global installations
 
 Status: adopted by explicit subsequent user instruction. Use npm with independent owning-repository manifests and `package-lock.json`; install project-local dependencies only. No system-global package, global package-manager installation, root workspace or implicitly shared runtime is authorized. This current instruction supersedes the original brief's pnpm choice. The [frontend decision](../brikuma-frontend/docs/DECISIONS.md#fe-dec-006-npm-tooling-override) owns local setup consequences.

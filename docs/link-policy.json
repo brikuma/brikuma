@@ -252,6 +252,11 @@
       "reason": "Canonical child ownership or implementation evidence; unavailable until child checkout exists."
     },
     {
+      "source": "docs/PROJECT_CONTEXT.md",
+      "target": "brikuma-frontend/docs/references/README.md",
+      "reason": "Canonical frontend visual-reference inspection record; unavailable until child checkout exists."
+    },
+    {
       "source": "docs/QUALITY_GATES.md",
       "target": "brikuma-frontend/docs/engineering/QUALITY.md",
       "reason": "Canonical child ownership or implementation evidence; unavailable until child checkout exists."
@@ -285,6 +290,11 @@
       "source": "docs/SOURCES.md",
       "target": "brikuma-frontend/docs/engineering/DEPENDENCIES.md",
       "reason": "Canonical child ownership or implementation evidence; unavailable until child checkout exists."
+    },
+    {
+      "source": "docs/SOURCES.md",
+      "target": "brikuma-frontend/docs/references/README.md",
+      "reason": "Canonical frontend visual-reference inspection record; unavailable until child checkout exists."
     },
     {
       "source": "docs/ai/REVIEW_POLICY.md",
