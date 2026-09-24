@@ -14,7 +14,7 @@ Status: specified; registration blocked. Preserve the existing frontend Git hist
 
 ## BRK-DEC-002 Executable source baseline
 
-Status: adopted. Use frontend execution brief 1.1.0 / consolidated v0.0.3. Original Word documents and the FORMA screenshot were absent at inspection; the shared ChatGPT page was not recoverable. No claims of reviewing them or reconstructed feature mappings are allowed. See [sources](SOURCES.md).
+Status: adopted. Use frontend execution brief 1.1.0 / consolidated v0.0.3. Original Word documents and the FORMA screenshot were absent at initial inspection; the shared ChatGPT page was initially unavailable and later inspected. The owner subsequently supplied D1/D2 Markdown sources and authorized frontend continuity corrections based on them. Mapping their actual identifiers is now supported; D3 and the original Word binaries remain unavailable. Preserve the narrower frontend-only execution boundary while recording broader product gaps. See [sources](SOURCES.md) and the [frontend decisions](../brikuma-frontend/docs/DECISIONS.md).
 
 ## BRK-DEC-003 Frontend-only scope
 
