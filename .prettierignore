@@ -1,0 +1,7 @@
+node_modules/
+artifacts/
+brikuma-frontend/
+brikuma-backend/
+brikuma-infrastructure/
+references/
+package-lock.json

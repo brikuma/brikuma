@@ -1,0 +1,296 @@
+{
+  "version": 1,
+  "conditionalLinks": [
+    {
+      "source": "AGENTS.md",
+      "target": "brikuma-frontend/AGENTS.md",
+      "reason": "Canonical child ownership or implementation evidence; unavailable until child checkout exists."
+    },
+    {
+      "source": "CHANGELOG.md",
+      "target": "brikuma-frontend/docs/delivery/ACCEPTANCE.md",
+      "reason": "Canonical child ownership or implementation evidence; unavailable until child checkout exists."
+    },
+    {
+      "source": "LEGEND.md",
+      "target": "brikuma-frontend/LEGEND.md",
+      "reason": "Canonical child ownership or implementation evidence; unavailable until child checkout exists."
+    },
+    {
+      "source": "README.md",
+      "target": "brikuma-backend/README.md",
+      "reason": "Canonical child ownership or implementation evidence; unavailable until child checkout exists."
+    },
+    {
+      "source": "README.md",
+      "target": "brikuma-frontend/README.md",
+      "reason": "Canonical child ownership or implementation evidence; unavailable until child checkout exists."
+    },
+    {
+      "source": "README.md",
+      "target": "brikuma-frontend/docs/README.md",
+      "reason": "Canonical child ownership or implementation evidence; unavailable until child checkout exists."
+    },
+    {
+      "source": "README.md",
+      "target": "brikuma-infrastructure/README.md",
+      "reason": "Canonical child ownership or implementation evidence; unavailable until child checkout exists."
+    },
+    {
+      "source": "SECURITY.md",
+      "target": "brikuma-frontend/SECURITY.md",
+      "reason": "Canonical child ownership or implementation evidence; unavailable until child checkout exists."
+    },
+    {
+      "source": "brikuma-backend/AGENTS.md",
+      "target": "AGENTS.md",
+      "reason": "Canonical parent governance or explicitly linked sibling scope; report unavailable in standalone checkout."
+    },
+    {
+      "source": "brikuma-backend/AGENTS.md",
+      "target": "docs/REPOSITORIES.md",
+      "reason": "Canonical parent governance or explicitly linked sibling scope; report unavailable in standalone checkout."
+    },
+    {
+      "source": "brikuma-backend/CLAUDE.md",
+      "target": "AGENTS.md",
+      "reason": "Canonical parent governance or explicitly linked sibling scope; report unavailable in standalone checkout."
+    },
+    {
+      "source": "brikuma-backend/README.md",
+      "target": "docs/README.md",
+      "reason": "Canonical parent governance or explicitly linked sibling scope; report unavailable in standalone checkout."
+    },
+    {
+      "source": "brikuma-backend/docs/README.md",
+      "target": "brikuma-frontend/README.md",
+      "reason": "Canonical parent governance or explicitly linked sibling scope; report unavailable in standalone checkout."
+    },
+    {
+      "source": "brikuma-backend/docs/README.md",
+      "target": "docs/QUALITY_GATES.md",
+      "reason": "Canonical parent governance or explicitly linked sibling scope; report unavailable in standalone checkout."
+    },
+    {
+      "source": "brikuma-backend/docs/README.md",
+      "target": "docs/REPOSITORIES.md",
+      "reason": "Canonical parent governance or explicitly linked sibling scope; report unavailable in standalone checkout."
+    },
+    {
+      "source": "brikuma-frontend/AGENTS.md",
+      "target": "AGENTS.md",
+      "reason": "Canonical parent governance or explicitly linked sibling scope; report unavailable in standalone checkout."
+    },
+    {
+      "source": "brikuma-frontend/AGENTS.md",
+      "target": "docs/ARCHITECTURE.md",
+      "reason": "Canonical parent governance or explicitly linked sibling scope; report unavailable in standalone checkout."
+    },
+    {
+      "source": "brikuma-frontend/AGENTS.md",
+      "target": "docs/QUALITY_GATES.md",
+      "reason": "Canonical parent governance or explicitly linked sibling scope; report unavailable in standalone checkout."
+    },
+    {
+      "source": "brikuma-frontend/AGENTS.md",
+      "target": "docs/REPOSITORIES.md",
+      "reason": "Canonical parent governance or explicitly linked sibling scope; report unavailable in standalone checkout."
+    },
+    {
+      "source": "brikuma-frontend/CLAUDE.md",
+      "target": "AGENTS.md",
+      "reason": "Canonical parent governance or explicitly linked sibling scope; report unavailable in standalone checkout."
+    },
+    {
+      "source": "brikuma-frontend/CONTRIBUTING.md",
+      "target": "CONTRIBUTING.md",
+      "reason": "Canonical parent governance or explicitly linked sibling scope; report unavailable in standalone checkout."
+    },
+    {
+      "source": "brikuma-frontend/LEGEND.md",
+      "target": "LEGEND.md",
+      "reason": "Canonical parent governance or explicitly linked sibling scope; report unavailable in standalone checkout."
+    },
+    {
+      "source": "brikuma-frontend/README.md",
+      "target": "docs/README.md",
+      "reason": "Canonical parent governance or explicitly linked sibling scope; report unavailable in standalone checkout."
+    },
+    {
+      "source": "brikuma-frontend/SECURITY.md",
+      "target": "SECURITY.md",
+      "reason": "Canonical parent governance or explicitly linked sibling scope; report unavailable in standalone checkout."
+    },
+    {
+      "source": "brikuma-frontend/docs/DECISIONS.md",
+      "target": "docs/DECISIONS.md",
+      "reason": "Canonical parent governance or explicitly linked sibling scope; report unavailable in standalone checkout."
+    },
+    {
+      "source": "brikuma-frontend/docs/README.md",
+      "target": "docs/README.md",
+      "reason": "Canonical parent governance or explicitly linked sibling scope; report unavailable in standalone checkout."
+    },
+    {
+      "source": "brikuma-frontend/docs/SOURCES.md",
+      "target": "docs/SOURCES.md",
+      "reason": "Canonical parent governance or explicitly linked sibling scope; report unavailable in standalone checkout."
+    },
+    {
+      "source": "brikuma-frontend/docs/TRACEABILITY.md",
+      "target": "docs/PROJECT_CONTEXT.md",
+      "reason": "Canonical parent governance or explicitly linked sibling scope; report unavailable in standalone checkout."
+    },
+    {
+      "source": "brikuma-frontend/docs/TRACEABILITY.md",
+      "target": "docs/REPOSITORIES.md",
+      "reason": "Canonical parent governance or explicitly linked sibling scope; report unavailable in standalone checkout."
+    },
+    {
+      "source": "brikuma-frontend/docs/TRACEABILITY.md",
+      "target": "docs/SOURCES.md",
+      "reason": "Canonical parent governance or explicitly linked sibling scope; report unavailable in standalone checkout."
+    },
+    {
+      "source": "brikuma-frontend/docs/ai/HANDOFF.md",
+      "target": "docs/REPOSITORIES.md",
+      "reason": "Canonical parent governance or explicitly linked sibling scope; report unavailable in standalone checkout."
+    },
+    {
+      "source": "brikuma-frontend/docs/ai/REVIEW.md",
+      "target": "docs/ai/REVIEW_POLICY.md",
+      "reason": "Canonical parent governance or explicitly linked sibling scope; report unavailable in standalone checkout."
+    },
+    {
+      "source": "brikuma-frontend/docs/ai/WORKFLOW.md",
+      "target": "docs/ai/REVIEW_POLICY.md",
+      "reason": "Canonical parent governance or explicitly linked sibling scope; report unavailable in standalone checkout."
+    },
+    {
+      "source": "brikuma-frontend/docs/delivery/PLAN.md",
+      "target": "docs/ROADMAP.md",
+      "reason": "Canonical parent governance or explicitly linked sibling scope; report unavailable in standalone checkout."
+    },
+    {
+      "source": "brikuma-frontend/docs/engineering/ARCHITECTURE.md",
+      "target": "docs/ARCHITECTURE.md",
+      "reason": "Canonical parent governance or explicitly linked sibling scope; report unavailable in standalone checkout."
+    },
+    {
+      "source": "brikuma-frontend/docs/product/CONTEXT.md",
+      "target": "docs/PROJECT_CONTEXT.md",
+      "reason": "Canonical parent governance or explicitly linked sibling scope; report unavailable in standalone checkout."
+    },
+    {
+      "source": "brikuma-frontend/docs/product/FRONTEND_SCOPE.md",
+      "target": "docs/ARCHITECTURE.md",
+      "reason": "Canonical parent governance or explicitly linked sibling scope; report unavailable in standalone checkout."
+    },
+    {
+      "source": "brikuma-frontend/docs/references/README.md",
+      "target": "docs/SOURCES.md",
+      "reason": "Canonical parent governance or explicitly linked sibling scope; report unavailable in standalone checkout."
+    },
+    {
+      "source": "brikuma-infrastructure/AGENTS.md",
+      "target": "AGENTS.md",
+      "reason": "Canonical parent governance or explicitly linked sibling scope; report unavailable in standalone checkout."
+    },
+    {
+      "source": "brikuma-infrastructure/AGENTS.md",
+      "target": "docs/REPOSITORIES.md",
+      "reason": "Canonical parent governance or explicitly linked sibling scope; report unavailable in standalone checkout."
+    },
+    {
+      "source": "brikuma-infrastructure/CLAUDE.md",
+      "target": "AGENTS.md",
+      "reason": "Canonical parent governance or explicitly linked sibling scope; report unavailable in standalone checkout."
+    },
+    {
+      "source": "brikuma-infrastructure/README.md",
+      "target": "docs/README.md",
+      "reason": "Canonical parent governance or explicitly linked sibling scope; report unavailable in standalone checkout."
+    },
+    {
+      "source": "brikuma-infrastructure/docs/README.md",
+      "target": "brikuma-frontend/README.md",
+      "reason": "Canonical parent governance or explicitly linked sibling scope; report unavailable in standalone checkout."
+    },
+    {
+      "source": "brikuma-infrastructure/docs/README.md",
+      "target": "docs/QUALITY_GATES.md",
+      "reason": "Canonical parent governance or explicitly linked sibling scope; report unavailable in standalone checkout."
+    },
+    {
+      "source": "brikuma-infrastructure/docs/README.md",
+      "target": "docs/REPOSITORIES.md",
+      "reason": "Canonical parent governance or explicitly linked sibling scope; report unavailable in standalone checkout."
+    },
+    {
+      "source": "docs/ARCHITECTURE.md",
+      "target": "brikuma-frontend/docs/engineering/ARCHITECTURE.md",
+      "reason": "Canonical child ownership or implementation evidence; unavailable until child checkout exists."
+    },
+    {
+      "source": "docs/DECISIONS.md",
+      "target": "brikuma-frontend/docs/DECISIONS.md",
+      "reason": "Canonical child ownership or implementation evidence; unavailable until child checkout exists."
+    },
+    {
+      "source": "docs/DEPENDENCIES.md",
+      "target": "brikuma-frontend/docs/engineering/DEPENDENCIES.md",
+      "reason": "Canonical frontend implementation evidence; unavailable until the child checkout exists."
+    },
+    {
+      "source": "docs/DOCUMENTATION_RULES.md",
+      "target": "brikuma-frontend/docs/README.md",
+      "reason": "Canonical child ownership or implementation evidence; unavailable until child checkout exists."
+    },
+    {
+      "source": "docs/PROJECT_CONTEXT.md",
+      "target": "brikuma-frontend/docs/product/FRONTEND_SCOPE.md",
+      "reason": "Canonical child ownership or implementation evidence; unavailable until child checkout exists."
+    },
+    {
+      "source": "docs/QUALITY_GATES.md",
+      "target": "brikuma-frontend/docs/engineering/QUALITY.md",
+      "reason": "Canonical child ownership or implementation evidence; unavailable until child checkout exists."
+    },
+    {
+      "source": "docs/README.md",
+      "target": "brikuma-backend/docs/README.md",
+      "reason": "Canonical child ownership or implementation evidence; unavailable until child checkout exists."
+    },
+    {
+      "source": "docs/README.md",
+      "target": "brikuma-frontend/docs/README.md",
+      "reason": "Canonical child ownership or implementation evidence; unavailable until child checkout exists."
+    },
+    {
+      "source": "docs/README.md",
+      "target": "brikuma-infrastructure/docs/README.md",
+      "reason": "Canonical child ownership or implementation evidence; unavailable until child checkout exists."
+    },
+    {
+      "source": "docs/ROADMAP.md",
+      "target": "brikuma-frontend/docs/delivery/PLAN.md",
+      "reason": "Canonical child ownership or implementation evidence; unavailable until child checkout exists."
+    },
+    {
+      "source": "docs/SOURCES.md",
+      "target": "brikuma-frontend/docs/SOURCES.md",
+      "reason": "Canonical child ownership or implementation evidence; unavailable until child checkout exists."
+    },
+    {
+      "source": "docs/SOURCES.md",
+      "target": "brikuma-frontend/docs/engineering/DEPENDENCIES.md",
+      "reason": "Canonical child ownership or implementation evidence; unavailable until child checkout exists."
+    },
+    {
+      "source": "docs/ai/REVIEW_POLICY.md",
+      "target": "brikuma-frontend/docs/ai/REVIEW.md",
+      "reason": "Canonical child ownership or implementation evidence; unavailable until child checkout exists."
+    }
+  ],
+  "approvedSubmodules": []
+}

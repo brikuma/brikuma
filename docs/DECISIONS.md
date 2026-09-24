@@ -1,0 +1,31 @@
+# Global decisions
+
+ID: BRK-ADR-001
+
+Owner/scope: Integration root
+
+Status: Specified
+
+Baseline: frontend execution brief 1.1.0 / consolidated product v0.0.3, 2026-09-24.
+
+## BRK-DEC-001 Independent histories and registration
+
+Status: specified; registration blocked. Preserve the existing frontend Git history. Bootstrap independent local children without application implementations in backend/infrastructure. Approved remote URLs are unavailable, so no reproducible submodule registration or integration pin is claimed. Temporarily ignore child directories in the parent. [Repository workflow](REPOSITORIES.md) is canonical.
+
+## BRK-DEC-002 Executable source baseline
+
+Status: adopted. Use frontend execution brief 1.1.0 / consolidated v0.0.3. Original Word documents and the FORMA screenshot were absent at inspection; the shared ChatGPT page was not recoverable. No claims of reviewing them or reconstructed feature mappings are allowed. See [sources](SOURCES.md).
+
+## BRK-DEC-003 Frontend-only scope
+
+Status: adopted. Static browser-local behavior and explicitly fictional samples are sufficient for this POC. Backend/infrastructure remain documentation-only. No fake service, generated-model claim, payment/invitation success or safety score is permitted. See [architecture](ARCHITECTURE.md).
+
+## BRK-DEC-004 Legal and governance context
+
+Status: pending owner decision for project license, approved remotes, security contact and remote protections. Third-party notices remain intact. Root/child agent entry files link canonical policy; actual Claude loading is not verified by mere file presence.
+
+Frontend implementation decisions are owned by the [frontend index](../brikuma-frontend/docs/DECISIONS.md).
+
+## BRK-DEC-005 npm and no global installations
+
+Status: adopted by explicit subsequent user instruction. Use npm with independent owning-repository manifests and `package-lock.json`; install project-local dependencies only. No system-global package, global package-manager installation, root workspace or implicitly shared runtime is authorized. This current instruction supersedes the original brief's pnpm choice. The [frontend decision](../brikuma-frontend/docs/DECISIONS.md#fe-dec-006-npm-tooling-override) owns local setup consequences.

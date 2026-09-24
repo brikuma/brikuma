@@ -1,0 +1,81 @@
+name: BRIKUMA root quality
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  root-docs-and-tooling:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    outputs:
+      verified: ${{ steps.evidence.outputs.verified }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+          set-safe-directory: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .node-version
+          package-manager-cache: false
+      - run: npm ci --ignore-scripts
+      - run: npm run prepare
+      - run: node scripts/docs-check.mjs --mode=candidate --tree=HEAD
+      - run: npm run format:check
+      - run: npm run docs:test
+      - run: npm run quality:test
+      - run: npm run hooks:check
+      - run: npm run deps:audit
+      - id: evidence
+        run: echo "verified=true" >> "$GITHUB_OUTPUT"
+
+  pinned-integration:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    outputs:
+      verified: ${{ steps.evidence.outputs.verified }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.sha }}
+          submodules: recursive
+          persist-credentials: false
+          set-safe-directory: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .node-version
+          package-manager-cache: false
+      - run: npm ci --ignore-scripts
+      - run: npm run docs:integration
+      - run: npm ci --ignore-scripts
+        working-directory: brikuma-frontend
+      - run: npm run check
+        working-directory: brikuma-frontend
+      - run: npm run build
+        working-directory: brikuma-frontend
+      - id: evidence
+        run: echo "verified=true" >> "$GITHUB_OUTPUT"
+
+  root-required-gate:
+    if: always()
+    needs: [root-docs-and-tooling, pinned-integration]
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Require successful mandatory jobs and completion evidence
+        env:
+          DOCS_RESULT: ${{ needs.root-docs-and-tooling.result }}
+          DOCS_EVIDENCE: ${{ needs.root-docs-and-tooling.outputs.verified }}
+          INTEGRATION_RESULT: ${{ needs.pinned-integration.result }}
+          INTEGRATION_EVIDENCE: ${{ needs.pinned-integration.outputs.verified }}
+        run: |
+          test "$DOCS_RESULT" = success
+          test "$DOCS_EVIDENCE" = true
+          test "$INTEGRATION_RESULT" = success
+          test "$INTEGRATION_EVIDENCE" = true
