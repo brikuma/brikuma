@@ -4,6 +4,14 @@ A frontend proof of concept for a brick-model creative workbench. The active app
 
 Start with the [global documentation](docs/README.md), [repository status](docs/REPOSITORIES.md) and [frontend documentation](brikuma-frontend/docs/README.md). [Backend](brikuma-backend/README.md) and [infrastructure](brikuma-infrastructure/README.md) are documentation-only boundaries.
 
-Registration as reproducible submodules is **blocked: approved remote URLs required**. Nested local repositories are not a completed integration snapshot. Do not run a frontend scaffolder or install its dependencies at this root.
+This private [brikuma repository](https://github.com/MatteoVincenti/brikuma) is the project entry point. It owns shared documentation and pins the independently versioned frontend, backend and infrastructure as Git submodules. Clone the complete project with:
+
+```sh
+git clone --recurse-submodules https://github.com/MatteoVincenti/brikuma.git
+```
+
+Access to all four private repositories is required. Run application commands inside `brikuma-frontend`; do not scaffold an application or install frontend dependencies at this root. See the [repository workflow](docs/REPOSITORIES.md) for child changes and integration pins.
+
+Pull requests and passing CI are the requested `main` policy for solo development. **GitHub branch protection is blocked by the current account plan**, so these requirements are not remotely enforced yet. The [quality policy](docs/QUALITY_GATES.md#private-github-repositories-and-main-protection) records the limitation and required configuration.
 
 See [contributing](CONTRIBUTING.md), [changes](CHANGELOG.md), [security](SECURITY.md), [agent instructions](AGENTS.md), [Claude adapter](CLAUDE.md) and [vocabulary](LEGEND.md). BRIKUMA is independent and is not affiliated with or certified by LEGO.

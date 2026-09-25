@@ -300,7 +300,30 @@
       "source": "docs/ai/REVIEW_POLICY.md",
       "target": "brikuma-frontend/docs/ai/REVIEW.md",
       "reason": "Canonical child ownership or implementation evidence; unavailable until child checkout exists."
+    },
+    {
+      "source": "brikuma-backend/README.md",
+      "target": "docs/REPOSITORIES.md",
+      "reason": "Canonical main-project clone and pinned-submodule workflow; unavailable in a standalone child checkout."
+    },
+    {
+      "source": "brikuma-infrastructure/README.md",
+      "target": "docs/REPOSITORIES.md",
+      "reason": "Canonical main-project clone and pinned-submodule workflow; unavailable in a standalone child checkout."
     }
   ],
-  "approvedSubmodules": []
+  "approvedSubmodules": [
+    {
+      "path": "brikuma-frontend",
+      "url": "https://github.com/MatteoVincenti/brikuma-frontend.git"
+    },
+    {
+      "path": "brikuma-backend",
+      "url": "https://github.com/MatteoVincenti/brikuma-backend.git"
+    },
+    {
+      "path": "brikuma-infrastructure",
+      "url": "https://github.com/MatteoVincenti/brikuma-infrastructure.git"
+    }
+  ]
 }

@@ -10,7 +10,7 @@ Baseline: frontend execution brief 1.1.0 / consolidated product v0.0.3, 2026-09-
 
 ## BRK-DEC-001 Independent histories and registration
 
-Status: specified; registration blocked. Preserve the existing frontend Git history. Bootstrap independent local children without application implementations in backend/infrastructure. Approved remote URLs are unavailable, so no reproducible submodule registration or integration pin is claimed. Temporarily ignore child directories in the parent. [Repository workflow](REPOSITORIES.md) is canonical.
+Status: adopted; approved registration implemented on 2026-09-25. Preserve independent child histories and keep backend/infrastructure documentation-only. The initial missing-remotes blocker is resolved by the owner's later publication authorization, recorded in BRK-DEC-006. The root now selects child revisions with Git submodules instead of temporarily ignoring those directories. [Repository workflow](REPOSITORIES.md) is canonical.
 
 ## BRK-DEC-002 Executable source baseline
 
@@ -22,7 +22,7 @@ Status: adopted. Static browser-local behavior and explicitly fictional samples 
 
 ## BRK-DEC-004 Legal and governance context
 
-Status: pending owner decision for project license, approved remotes, security contact and remote protections. Third-party notices remain intact. Root/child agent entry files link canonical policy; actual Claude loading is not verified by mere file presence.
+Status: project license and security contact remain pending owner decision. Approved private remotes and the requested solo-development protection policy are recorded in BRK-DEC-006; GitHub plan restrictions still block remote enforcement. Third-party notices remain intact. Root/child agent entry files link canonical policy; actual Claude loading is not verified by mere file presence.
 
 Frontend implementation decisions are owned by the [frontend index](../brikuma-frontend/docs/DECISIONS.md).
 
@@ -35,3 +35,9 @@ The later rejection of the retro interface and arbitrary exploded view is addres
 ## BRK-DEC-005 npm and no global installations
 
 Status: adopted by explicit subsequent user instruction. Use npm with independent owning-repository manifests and `package-lock.json`; install project-local dependencies only. No system-global package, global package-manager installation, root workspace or implicitly shared runtime is authorized. This current instruction supersedes the original brief's pnpm choice. The [frontend decision](../brikuma-frontend/docs/DECISIONS.md#fe-dec-006-npm-tooling-override) owns local setup consequences.
+
+## BRK-DEC-006 Private project publication and solo-development policy
+
+Status: adopted by explicit owner instruction on 2026-09-25. The owner authorized GitHub CLI creation of private repositories, pushes and branch protection, then clarified that `brikuma` must be the complete project's entry point. This authorization covers the private `MatteoVincenti/brikuma` root and its three independently versioned children; it does not authorize public visibility, history rewriting, deployments or backend implementation. Existing histories are preserved and registered using real remote URLs and exact gitlinks. [Repository ownership and clone workflow](REPOSITORIES.md) is canonical.
+
+The owner works alone and selected mandatory pull requests and CI without a second reviewer's approval. Configure `main` accordingly when GitHub permits enforcement; zero required external approvals does not remove the local candidate-review gate. GitHub returned HTTP 403 for private branch protection under the current plan. The repositories remain private, and neither workflow files nor repository merge preferences are evidence that protection is active. The [quality policy](QUALITY_GATES.md#private-github-repositories-and-main-protection) owns the requested rules, actual blocker and CI access model.

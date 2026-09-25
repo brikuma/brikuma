@@ -44,7 +44,59 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: ${{ github.sha }}
-          submodules: recursive
+          submodules: false
+          persist-credentials: false
+          set-safe-directory: false
+      - name: Require private child read keys and committed gitlinks
+        id: pins
+        shell: bash
+        env:
+          FRONTEND_KEY_PRESENT: ${{ secrets.BRIKUMA_FRONTEND_READ_KEY != '' }}
+          BACKEND_KEY_PRESENT: ${{ secrets.BRIKUMA_BACKEND_READ_KEY != '' }}
+          INFRASTRUCTURE_KEY_PRESENT: ${{ secrets.BRIKUMA_INFRASTRUCTURE_READ_KEY != '' }}
+        run: |
+          if [[ "$FRONTEND_KEY_PRESENT" != true || "$BACKEND_KEY_PRESENT" != true || "$INFRASTRUCTURE_KEY_PRESENT" != true ]]; then
+            echo "All three BRIKUMA_*_READ_KEY secrets are required for private pinned integration." >&2
+            exit 1
+          fi
+          for child in frontend backend infrastructure; do
+            child_path="brikuma-$child"
+            entry="$(git ls-tree HEAD -- "$child_path")"
+            IFS=$' \t' read -r mode type sha path <<< "$entry"
+            if [[ "$mode" != 160000 || "$type" != commit || ! "$sha" =~ ^[0-9a-f]{40}$ || "$path" != "$child_path" ]]; then
+              echo "$child_path must be a committed mode-160000 gitlink." >&2
+              exit 1
+            fi
+            printf '%s=%s\n' "$child" "$sha" >> "$GITHUB_OUTPUT"
+          done
+      - name: Check out the pinned frontend
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: MatteoVincenti/brikuma-frontend
+          path: brikuma-frontend
+          ref: ${{ steps.pins.outputs.frontend }}
+          ssh-key: ${{ secrets.BRIKUMA_FRONTEND_READ_KEY }}
+          ssh-strict: true
+          persist-credentials: false
+          set-safe-directory: false
+      - name: Check out the pinned backend documentation
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: MatteoVincenti/brikuma-backend
+          path: brikuma-backend
+          ref: ${{ steps.pins.outputs.backend }}
+          ssh-key: ${{ secrets.BRIKUMA_BACKEND_READ_KEY }}
+          ssh-strict: true
+          persist-credentials: false
+          set-safe-directory: false
+      - name: Check out the pinned infrastructure documentation
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: MatteoVincenti/brikuma-infrastructure
+          path: brikuma-infrastructure
+          ref: ${{ steps.pins.outputs.infrastructure }}
+          ssh-key: ${{ secrets.BRIKUMA_INFRASTRUCTURE_READ_KEY }}
+          ssh-strict: true
           persist-credentials: false
           set-safe-directory: false
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0

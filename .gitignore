@@ -1,7 +1,3 @@
-# Temporary child exclusions until approved remote URLs permit registration.
-/brikuma-frontend/
-/brikuma-backend/
-/brikuma-infrastructure/
 /node_modules/
 /artifacts/
 .DS_Store
