@@ -14,4 +14,6 @@ Access to all four private repositories is required. Run application commands in
 
 Pull requests and passing CI are the requested `main` policy for solo development. **GitHub branch protection is blocked by the current account plan**, so these requirements are not remotely enforced yet. The [quality policy](docs/QUALITY_GATES.md#private-github-repositories-and-main-protection) records the limitation and required configuration.
 
+The frontend workflow delivers its verified static build as a private downloadable artifact. Select a successful run matching this root's frontend pin; see [verified build downloads](brikuma-frontend/README.md#verified-build-downloads). Hosting remains deferred.
+
 See [contributing](CONTRIBUTING.md), [changes](CHANGELOG.md), [security](SECURITY.md), [agent instructions](AGENTS.md), [Claude adapter](CLAUDE.md) and [vocabulary](LEGEND.md). BRIKUMA is independent and is not affiliated with or certified by LEGO.
