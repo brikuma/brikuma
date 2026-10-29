@@ -53,6 +53,8 @@ test(
     mkdirSync(seed);
     for (const name of [
       'package.json',
+      'privacy-policy.json',
+      'gitleaks.lock.json',
       'package-lock.json',
       '.node-version',
       '.npmrc',
@@ -71,7 +73,10 @@ test(
         path.join(source, '.husky', hook),
         path.join(seed, '.husky', hook),
       );
-    writeFileSync(path.join(seed, '.gitignore'), 'node_modules/\nartifacts/\n');
+    writeFileSync(
+      path.join(seed, '.gitignore'),
+      'node_modules/\nartifacts/\n.tools/\n',
+    );
     writeFileSync(path.join(seed, 'README.md'), '# Disposable fixture\n');
     mkdirSync(path.join(seed, 'docs'));
     writeFileSync(path.join(seed, 'docs/README.md'), '# Documentation\n');
@@ -85,7 +90,7 @@ test(
       '-c',
       'user.name=Disposable Hook Test',
       '-c',
-      'user.email=hooks@example.invalid',
+      'user.email=' + '123+hooks@users.noreply.github.com',
       'commit',
       '-qm',
       'docs(project): create disposable bootstrap',
@@ -97,6 +102,15 @@ test(
       path.join(clone, 'node_modules'),
       'dir',
     );
+    cpSync(path.join(source, '.tools'), path.join(clone, '.tools'), {
+      recursive: true,
+    });
+    execute(clone, 'git', [
+      'config',
+      'user.email',
+      '123+hooks@users.noreply.github.com',
+    ]);
+    execute(clone, 'git', ['config', 'user.name', 'Disposable Hook Test']);
     execute(clone, 'npm', ['run', 'prepare']);
     assert.equal(
       execute(clone, 'git', [
@@ -166,7 +180,7 @@ test(
       '-c',
       'user.name=Disposable Hook Test',
       '-c',
-      'user.email=hooks@example.invalid',
+      'user.email=' + '123+hooks@users.noreply.github.com',
       'commit',
       '-m',
       'docs(project): update reviewed fixture',

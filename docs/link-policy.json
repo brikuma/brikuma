@@ -310,20 +310,25 @@
       "source": "brikuma-infrastructure/README.md",
       "target": "docs/REPOSITORIES.md",
       "reason": "Canonical main-project clone and pinned-submodule workflow; unavailable in a standalone child checkout."
+    },
+    {
+      "source": "docs/PUBLICATION.md",
+      "target": "brikuma-frontend/THIRD_PARTY_NOTICES.md",
+      "reason": "Owner-retained external skill provenance and unverified redistribution license."
     }
   ],
   "approvedSubmodules": [
     {
       "path": "brikuma-frontend",
-      "url": "https://github.com/MatteoVincenti/brikuma-frontend.git"
+      "url": "https://github.com/brikuma/brikuma-frontend.git"
     },
     {
       "path": "brikuma-backend",
-      "url": "https://github.com/MatteoVincenti/brikuma-backend.git"
+      "url": "https://github.com/brikuma/brikuma-backend.git"
     },
     {
       "path": "brikuma-infrastructure",
-      "url": "https://github.com/MatteoVincenti/brikuma-infrastructure.git"
+      "url": "https://github.com/brikuma/brikuma-infrastructure.git"
     }
   ]
 }

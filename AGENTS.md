@@ -18,10 +18,10 @@ Read this entry before changing any owning repository. Policies here apply acros
 - Label fixtures and unconnected capabilities truthfully. No fabricated successful transaction, invitation, validation or generation.
 - Resolve the actual working directory and Git root before writes, installs or Git operations. Preserve user changes and existing histories.
 - The intended topology is independent Git submodules. Do not replace it with a workspace or double-track child source. Registration needs approved real remotes.
-- Never push, create remote repositories, rewrite history, invent identity, alter global Git settings or disable gates.
+- Do not push, create remote repositories or rewrite remote history without explicit authorization. Authorized cleanup runs in isolated copies first. Never invent identity, alter global Git settings or disable gates.
 - Research exact dependencies and tool APIs before installation. Audit resolved production and development trees; relevant high/critical findings block delivery.
 - Use npm and repository-local dependencies/lockfiles per the later user override. Never install system-global packages or create a root workspace.
-- No project license, security contact or deployment is approved. All shipped content must be demo-safe.
+- Original material uses MIT; preserve third-party terms. Security reports use GitHub Private Vulnerability Reporting after activation. Public visibility needs final owner authorization; no deployment is approved. Follow [publication policy](docs/PUBLICATION.md). All shipped content must be demo-safe.
 - Use Conventional Commits and review one coherent candidate tree in its owning repository. Stage explicit paths. Commit children before integration pins; no cross-repository atomic transaction exists.
 - Record unknowns as not checked, not measured or blocked. A generated file is not proof that a tool ran successfully.
 

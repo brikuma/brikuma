@@ -1,1 +1,2 @@
+python3 -B scripts/privacy.py message --message "$1"
 ./node_modules/.bin/commitlint --edit "$1"

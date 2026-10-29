@@ -23,7 +23,10 @@
     "review:check": "node scripts/quality.mjs review",
     "check:commit": "node scripts/quality.mjs commit",
     "check:push": "node scripts/quality.mjs push",
-    "check": "npm run docs:check && npm run format:check && npm run docs:test && npm run quality:test && npm run hooks:check"
+    "check": "npm run docs:check && npm run format:check && npm run docs:test && npm run quality:test && npm run hooks:check && npm run privacy:test",
+    "privacy:install": "python3 -B scripts/privacy-install.py",
+    "privacy:check": "python3 -B scripts/privacy.py full",
+    "privacy:test": "python3 -B scripts/privacy_test.py && python3 -B scripts/github_policy_test.py"
   },
   "devDependencies": {
     "@commitlint/cli": "21.2.3",
@@ -31,5 +34,6 @@
     "husky": "9.1.7",
     "lint-staged": "17.5.1",
     "prettier": "3.9.9"
-  }
+  },
+  "license": "MIT"
 }

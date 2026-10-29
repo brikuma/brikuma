@@ -1,9 +1,9 @@
 [submodule "brikuma-frontend"]
 	path = brikuma-frontend
-	url = https://github.com/MatteoVincenti/brikuma-frontend.git
+	url = https://github.com/brikuma/brikuma-frontend.git
 [submodule "brikuma-backend"]
 	path = brikuma-backend
-	url = https://github.com/MatteoVincenti/brikuma-backend.git
+	url = https://github.com/brikuma/brikuma-backend.git
 [submodule "brikuma-infrastructure"]
 	path = brikuma-infrastructure
-	url = https://github.com/MatteoVincenti/brikuma-infrastructure.git
+	url = https://github.com/brikuma/brikuma-infrastructure.git

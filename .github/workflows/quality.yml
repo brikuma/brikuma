@@ -30,6 +30,7 @@ jobs:
       - run: npm run format:check
       - run: npm run docs:test
       - run: npm run quality:test
+      - run: python3 -B scripts/privacy-install.py
       - run: npm run hooks:check
       - run: npm run deps:audit
       - id: evidence
@@ -47,18 +48,10 @@ jobs:
           submodules: false
           persist-credentials: false
           set-safe-directory: false
-      - name: Require private child read keys and committed gitlinks
+      - name: Read exact committed child gitlinks
         id: pins
         shell: bash
-        env:
-          FRONTEND_KEY_PRESENT: ${{ secrets.BRIKUMA_FRONTEND_READ_KEY != '' }}
-          BACKEND_KEY_PRESENT: ${{ secrets.BRIKUMA_BACKEND_READ_KEY != '' }}
-          INFRASTRUCTURE_KEY_PRESENT: ${{ secrets.BRIKUMA_INFRASTRUCTURE_READ_KEY != '' }}
         run: |
-          if [[ "$FRONTEND_KEY_PRESENT" != true || "$BACKEND_KEY_PRESENT" != true || "$INFRASTRUCTURE_KEY_PRESENT" != true ]]; then
-            echo "All three BRIKUMA_*_READ_KEY secrets are required for private pinned integration." >&2
-            exit 1
-          fi
           for child in frontend backend infrastructure; do
             child_path="brikuma-$child"
             entry="$(git ls-tree HEAD -- "$child_path")"
@@ -72,33 +65,38 @@ jobs:
       - name: Check out the pinned frontend
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          repository: MatteoVincenti/brikuma-frontend
+          fetch-depth: 0
+          repository: brikuma/brikuma-frontend
           path: brikuma-frontend
           ref: ${{ steps.pins.outputs.frontend }}
-          ssh-key: ${{ secrets.BRIKUMA_FRONTEND_READ_KEY }}
-          ssh-strict: true
           persist-credentials: false
           set-safe-directory: false
       - name: Check out the pinned backend documentation
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          repository: MatteoVincenti/brikuma-backend
+          fetch-depth: 0
+          repository: brikuma/brikuma-backend
           path: brikuma-backend
           ref: ${{ steps.pins.outputs.backend }}
-          ssh-key: ${{ secrets.BRIKUMA_BACKEND_READ_KEY }}
-          ssh-strict: true
           persist-credentials: false
           set-safe-directory: false
       - name: Check out the pinned infrastructure documentation
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          repository: MatteoVincenti/brikuma-infrastructure
+          fetch-depth: 0
+          repository: brikuma/brikuma-infrastructure
           path: brikuma-infrastructure
           ref: ${{ steps.pins.outputs.infrastructure }}
-          ssh-key: ${{ secrets.BRIKUMA_INFRASTRUCTURE_READ_KEY }}
-          ssh-strict: true
           persist-credentials: false
           set-safe-directory: false
+      - name: Require each selected commit to belong to its protected main
+        shell: bash
+        run: |
+          for child in frontend backend infrastructure; do
+            child_path="brikuma-$child"
+            git -C "$child_path" fetch --no-tags "https://github.com/brikuma/$child_path.git" main
+            git -C "$child_path" merge-base --is-ancestor HEAD FETCH_HEAD
+          done
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           node-version-file: .node-version
@@ -106,6 +104,8 @@ jobs:
       - run: npm ci --ignore-scripts
       - run: npm run docs:integration
       - run: npm ci --ignore-scripts
+        working-directory: brikuma-frontend
+      - run: python3 -B scripts/privacy-install.py
         working-directory: brikuma-frontend
       - run: npm run check
         working-directory: brikuma-frontend

@@ -9,3 +9,5 @@ Before a commit, inspect status and staged diff; stage only intended paths; veri
 Child changes are committed before a root pin update. A root pin update must reference an existing reviewed child commit. Publishing remains separately authorized. Remote branch protection is owner configuration; workflow files do not enable it.
 
 [Documentation rules](docs/DOCUMENTATION_RULES.md) · [Review policy](docs/ai/REVIEW_POLICY.md)
+
+Complete [privacy setup](PRIVACY.md) before contributing. The `privacy` check is required in addition to the existing owning gate. Changes to scanners, workflows, tool locks or exceptions require local validation and documented review of the exact candidate SHA. Original contributions use MIT; preserve upstream notices.

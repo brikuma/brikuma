@@ -1,11 +1,6 @@
+import { sanitizeEvidence } from './evidence-sanitize.mjs';
 import { createHash } from 'node:crypto';
-import {
-  existsSync,
-  mkdirSync,
-  readFileSync,
-  realpathSync,
-  writeFileSync,
-} from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
@@ -38,7 +33,7 @@ export function relevant(name) {
   return (
     /(^|\/)(AGENTS|CLAUDE)\.md$/.test(name) ||
     /\.(md|mjs|cjs|json|yaml|yml)$/.test(name) ||
-    /^(scripts\/|\.husky\/|\.github\/|\.gitmodules$|\.gitignore$|\.node-version$|\.npmrc$|\.editorconfig$|\.prettierignore$)/.test(
+    /^(LICENSE$|privacy-policy\.json$|gitleaks\.lock\.json$|scripts\/|\.husky\/|\.github\/|\.gitmodules$|\.gitignore$|\.node-version$|\.npmrc$|\.editorconfig$|\.prettierignore$)/.test(
       name,
     )
   );
@@ -86,7 +81,7 @@ export function snapshot(root) {
   assertStagedInputs(root);
   const base = run(root, 'git', ['rev-parse', '--verify', 'HEAD'], true);
   return {
-    repository: realpathSync(git(root, 'rev-parse', '--show-toplevel')),
+    repository: 'brikuma',
     baseCommit: base.exitCode === 0 ? base.output.trim() : 'initial-state',
     candidateTree: git(root, 'write-tree'),
     lockfileHash: hashFile(root, 'package-lock.json'),
@@ -181,6 +176,7 @@ export function prepareEvidence(root) {
   const reports = [];
   for (const [command, args] of commands) {
     const result = run(root, command, args, true);
+    result.output = sanitizeEvidence(result.output, root, 'brikuma');
     const log = `check-${reports.length + 1}.log`;
     writeFileSync(path.join(directory, log), result.output);
     reports.push({

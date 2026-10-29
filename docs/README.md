@@ -24,3 +24,7 @@ The root owns shared policy, product boundaries and repository integration. Impl
 Child entry points: [frontend](../brikuma-frontend/docs/README.md), [backend](../brikuma-backend/docs/README.md), [infrastructure](../brikuma-infrastructure/docs/README.md).
 
 Root entries: [README](../README.md), [instructions](../AGENTS.md), [Claude adapter](../CLAUDE.md), [vocabulary](../LEGEND.md), [contributing](../CONTRIBUTING.md), [changes](../CHANGELOG.md), [security](../SECURITY.md).
+
+- [Privacy tooling and contributor setup](../PRIVACY.md)
+
+- [Publication, privacy and GitHub governance](PUBLICATION.md)
