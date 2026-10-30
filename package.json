@@ -29,11 +29,11 @@
     "privacy:test": "python3 -B scripts/privacy_test.py && python3 -B scripts/github_policy_test.py"
   },
   "devDependencies": {
-    "@commitlint/cli": "21.2.3",
-    "@commitlint/config-conventional": "21.2.3",
+    "@commitlint/cli": "21.2.4",
+    "@commitlint/config-conventional": "21.2.4",
     "husky": "9.1.7",
-    "lint-staged": "17.5.1",
-    "prettier": "3.9.9"
+    "lint-staged": "17.6.0",
+    "prettier": "3.9.10"
   },
   "license": "MIT"
 }
