@@ -48,3 +48,9 @@ Gitleaks 8.30.1 is an independently installed MIT CLI, with archive and executab
 The root lockfile refreshes fast-uri to 3.1.9 within its declared compatible range. Its BSD-3-Clause license and official registry metadata were checked. No root runtime dependency or workspace is introduced.
 
 The final full-tree `npm audit` returned zero vulnerabilities after these updates. This records known-advisory coverage on this date, not an absence-of-bugs guarantee. Synthetic scanner tests and owning application/tooling gates remain separate checks.
+
+## Reviewed Dependabot updates (2026-10-30)
+
+The owner requested integration of compatible Dependabot updates. The current selections supersede the earlier versions above: @commitlint/cli and @commitlint/config-conventional 21.2.4 together, Prettier 3.9.10, lint-staged 17.6.0 and actions/setup-node 7.1.0 at commit 949feb2413d6458794dcd2491c4babbbce0c15c1. Their MIT licenses and Node requirements fit the pinned toolchain. The action uses Node 24 internally; the selected project Node version is unchanged. Keep the staged formatting task read-only: lint-staged 17.6 can stage all tracked task modifications.
+
+Sources: [commitlint release](https://github.com/conventional-changelog/commitlint/releases/tag/v21.2.4), [Prettier release](https://github.com/prettier/prettier/releases/tag/3.9.10), [lint-staged release](https://github.com/lint-staged/lint-staged/releases/tag/v17.6.0), [setup-node release](https://github.com/actions/setup-node/releases/tag/v7.1.0). Resolved dependency audits, staged hook regressions and exact-candidate checks must pass before merge; release metadata is not evidence of those checks.
