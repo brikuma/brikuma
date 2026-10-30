@@ -4,7 +4,7 @@ ID: BRK-PUB-001
 
 Owner/scope: Integration root; all four independent repositories
 
-Status: Preparation approved; public visibility requires a separate final owner authorization
+Status: Public transition authorized by the owner on 2026-10-30; enforcement requires API readback and acceptance probes
 
 Baseline: owner publication plan and subsequent clarifications, 2026-10-29.
 
@@ -16,7 +16,7 @@ The owner and explicitly appointed members of the non-secret `maintainers` team 
 
 ### One-time publication preparation decision
 
-On 2026-10-29 the owner explicitly deferred the known frontend component-test timeouts and directed publication preparation to proceed first. This decision permits finalizing the initial privacy/governance commits and their root integration while those failures remain open in frontend issues #5–#10. The last complete run recorded 792 passes and six timeout failures across five files; it is not a passing gate and is not relabeled as one.
+On 2026-10-29 the owner explicitly deferred the known frontend component-test timeouts and directed publication preparation to proceed first. This decision permits finalizing the initial privacy/governance commits and their root integration while those failures remain open in frontend issues #1–#6 (formerly #5–#10 before repository replacement). The retained local full-suite run recorded 792 passes and six timeout failures across five files; it is not a passing gate and is not relabeled as one. Later CI passed its deterministic checks and then encountered the separately tracked browser timeout.
 
 For this bootstrap only, record the exact candidate, the owner's exception, separate read-only review, the retained failed-run evidence and fresh applicable privacy, dependency-security, staged-hygiene, type, architecture and documentation checks. Keep privacy and commit-message validation active. A temporary local hook used to commit this reviewed candidate must bind to its exact tree and the recorded checks; it must not create a reusable bypass or be shipped as a project hook. Root checks and strict pinned documentation integration remain mandatory.
 
@@ -60,7 +60,7 @@ An explicit force push does not remove old PR refs, cached commit views or other
 
 GitHub Free provides repository rulesets for public repositories. Visibility and protection changes are not atomic. Prepare all payloads and evidence first; present the sanitized report, exact candidate SHAs, rewrite maps, blocked surfaces and expected settings for final owner authorization.
 
-After authorization and a write/automation freeze, publish and immediately protect one child at a time. Read back both rulesets before proceeding. If protection fails, stop subsequent publications and retain the freeze. Integrate the root's exact public child commits and verify its secret-free CI. Only then remove the three obsolete child deploy keys and root read-key secrets. Publish and protect root last.
+After authorization, inventory concurrent writes and publish and immediately protect one child at a time. Actions and automated security updates remain enabled; exact expected-SHA leases and a fresh complete ref inventory guard against concurrent changes. Read back both rulesets before proceeding. If protection fails, stop subsequent publications and resolve the failed protection before proceeding. Integrate the root's exact public child commits and verify its secret-free CI. Only then remove the three obsolete child deploy keys and root read-key secrets. Publish and protect root last.
 
 Test an anonymous recursive clone and a fork PR without secrets. On disposable test branches with equivalent rules, verify that a green owner PR is allowed; missing/failed `privacy`, direct pushes, force pushes and deletion are blocked. Verify maintainer merge authority without risking `main`. Read effective settings through APIs. Record real outcomes, not merely the existence of configuration files. Do not create or delete remote test data before the publication authorization covers those probes.
 
@@ -73,3 +73,15 @@ Related: [quality gates](QUALITY_GATES.md), [repository ownership](REPOSITORIES.
 ## Retained external skills
 
 The owner chose to retain frontend `.agents/`, `.claude/` and `skills-lock.json` while documenting their unverified redistribution license. The frontend [third-party notices](../brikuma-frontend/THIRD_PARTY_NOTICES.md#external-agent-skills-redistribution-license-unverified) distinguish these copies from original MIT material. A clean privacy scan does not resolve this licensing limitation.
+
+## Authorized public transition and repository replacement
+
+On 2026-10-30 the owner authorized publication, declined GitHub Support, and authorized deleting the original frontend and root GitHub repositories after independent clean replacements were prepared. A force push had replaced branch tips but left old PR references and cached commit views accessible. The replacements preserve cleaned Git history and exact child pins, without a fork relationship or old PR refs. Transfer the seven reviewed timeout issues while both frontend repositories are private, preserve comments and labels, and update their issue numbers. The original local histories remain private; do not push those preserved refs back to the replacements.
+
+The one-time bootstrap finalization also covers the reviewed issue-link, documentation and security-audit corrections before public protections are active. Bind any temporary local exception to the exact candidate tree, unchanged application/dependency inputs, passing applicable checks, independent read-only review and retained failed-run evidence. The separately observed browser timeout is frontend issue #7. No application failure is waived for a future protected PR, and no failed CI run is relabeled as successful.
+
+The organization restricts external Actions to GitHub-owned actions, requires full commit SHAs, and defaults workflow tokens to read-only without PR-approval permission. Members cannot create repositories, teams or Pages sites, change repository visibility, delete repositories or fork private repositories. The enforced `BRIKUMA public repository security` configuration is the default for new public repositories and covers dependency graph, Dependabot alerts/security updates, CodeQL default setup, secret scanning, push protection and private vulnerability reporting. Apply it only to public repositories under the approved Free plan; no paid private security product is authorized.
+
+The expected configuration and administrative audit include these organization controls. Repository-token weekly audits retain their explicitly narrower coverage. Restricting outside-collaborator invitations to organization owners requires GitHub Enterprise Cloud and is unavailable on the selected Free plan. Only repository admins can invite outside collaborators; delegated maintainers receive write, not admin. OAuth/PAT administration and other unavailable UI-only settings require separate effective-state verification. Mandatory secure-only 2FA remains deferred at the owner's direction; ordinary 2FA is required. Do not claim that all GitHub security features are enabled merely because the checked subset passes.
+
+Source for the Free-plan invitation limit: [GitHub outside collaborators](https://docs.github.com/en/organizations/managing-user-access-to-your-organizations-repositories/managing-outside-collaborators/adding-outside-collaborators-to-repositories-in-your-organization), checked 2026-10-30.

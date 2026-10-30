@@ -4,7 +4,7 @@ ID: BRK-REPO-001
 
 Owner/scope: Integration root
 
-Status: Registered private repositories; public preparation approved, final publication pending
+Status: Public topology approved; independent histories and exact submodule pins
 
 Baseline: frontend execution brief 1.1.0 / consolidated product v0.0.3, 2026-09-24.
 
@@ -21,13 +21,13 @@ The owner authorized private GitHub publication and clarified the complete proje
 
 [`.gitmodules`](../.gitmodules) declares the child paths and remote URLs; the root Git tree selects each exact commit with mode `160000`. The [link policy](link-policy.json) permits those same approved URLs. Child source files are not tracked again by the root, and this arrangement does not create a package workspace.
 
-The initial registration selects frontend `0c86c23f873d3dd6bf69ad7c9d5bbbfedd8bfff2`, backend `6ad4dfe84027ae059cefdbd44aef98740291a910`, and infrastructure `a3b1d826db0b3f14f140e01da82d118438562a6e`. Later root commits may select newer children; inspect `git submodule status` and the root tree for the current snapshot. All four repositories remain private until the [publication policy](PUBLICATION.md) acceptance and final owner authorization are satisfied. [Branch protection status](QUALITY_GATES.md#private-github-repositories-and-main-protection) is separate from successful registration.
+The initial registration selects frontend `0c86c23f873d3dd6bf69ad7c9d5bbbfedd8bfff2`, backend `6ad4dfe84027ae059cefdbd44aef98740291a910`, and infrastructure `a3b1d826db0b3f14f140e01da82d118438562a6e`. Later root commits may select newer children; inspect `git submodule status` and the root tree for the current snapshot. The owner authorized the public transition on 2026-10-30. The [publication policy](PUBLICATION.md) records the independent replacement of frontend and root after old GitHub PR references retained removed conversation links. [Branch protection status](QUALITY_GATES.md#private-github-repositories-and-main-protection) is separate from successful registration.
 
 ## Safe registration and clone workflow
 
 Only register owner-approved real remotes. Never use invented hosts, absolute local URLs or unsafe protocol overrides. Registration requires `.gitmodules` path/URL entries, tree mode `160000`, and an available child commit. Remove only the corresponding temporary parent ignore when registration succeeds. If ordinary child sources are already root-tracked, migration requires approval.
 
-Use `git clone --recurse-submodules https://github.com/brikuma/brikuma.git` or `git submodule update --init --recursive` for an existing root clone. Authenticate with access to all four private repositories. Initialization normally checks out the exact pinned commit, which may be detached. Inspect status and create or switch to an explicit named work branch before child edits; never force-move an existing branch. Do not use `git submodule update --remote` in reproducible CI.
+Use `git clone --recurse-submodules https://github.com/brikuma/brikuma.git` or `git submodule update --init --recursive` for an existing root clone. Public cloning does not require credentials; authenticated write access is reserved for designated maintainers. Initialization normally checks out the exact pinned commit, which may be detached. Inspect status and create or switch to an explicit named work branch before child edits; never force-move an existing branch. Do not use `git submodule update --remote` in reproducible CI.
 
 Commit a coherent child change first, run its owning checks and publish the reviewed child commit under the authorized workflow. Validate its commit object, then stage only the corresponding root gitlink and relevant root docs. Root integration validates links against child commits pinned in the candidate root tree, never against uncommitted child files. Before publishing the root, ensure every pinned child commit is available through the approved remotes. The owner's explicit 2026-09-25 request authorizes this initial private publication; it does not provide blanket permission for unrelated future remote changes. See [BRK-DEC-006](DECISIONS.md#brk-dec-006-private-project-publication-and-solo-development-policy).
 
